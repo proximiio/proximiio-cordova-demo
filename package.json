@@ -1,0 +1,16 @@
+{
+  "name": "proximiio-cordova-demo",
+  "version": "1.0.0",
+  "description": "Proximi.io Cordova Plugin Demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/proximiio/proximiio-cordova-demo.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "homepage": "https://github.com/proximiio/proximiio-cordova-demo#readme"
+}

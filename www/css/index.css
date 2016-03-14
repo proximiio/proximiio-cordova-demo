@@ -33,43 +33,48 @@ body {
     height:100%;
     margin:0px;
     padding:0px;
-    text-transform:uppercase;
     width:100%;
 }
 
 /* Portrait layout (default) */
 .header {
     position:absolute;
-    left:0%;
-    top:0%;
-    height:100px;
+    left:0;
+    top:0;
+    height:50px;
     width:100%;
     text-align:center;
     padding-top:20px;
-    background-color:rgba(255, 255, 255, 0.3);
+    background-color:rgba(0, 0, 0, 0.3);
+}
+
+.header .left {
+    float: left;
+}
+
+.clearfix {
+    clear: both;
 }
 
 .header h1 {
-    font-size:48px;
-    font-weight:normal;
-    margin:0px;
+    font-size:24px;
+    font-weight:lighter;
+    margin:0;
     overflow:visible;
-    padding:0px;
-    text-align:center;
+    padding-top: 0;
+    padding-left: 10px;
+    text-align:left;
+    color: white;
+    vertical-align: middle;
 }
 
-.header h2 {
-    font-size:32px;
-    font-weight:normal;
-    margin:0px;
-    overflow:visible;
-    padding:0px;
-    text-align:center;
+.header h1 img {
+    vertical-align: middle;
 }
 
 .page {
     position:absolute;
-    top:120px;
+    top:80px;
     padding-top: 10px;
     left:0%;
     /* Firefox */
@@ -86,19 +91,21 @@ body {
 }
 
 .page .keyp {
-    margin-left: 5px;
-    font-size: 18px;
+    font-size: 14px;
+    font-weight: bold;
     margin-top: 5px;
     margin-bottom: 2px;
+    margin-left: 15px;
+
     vertical-align: top;
+    text-transform:uppercase;
 }
 .page .valuep {
-    width: 100%;
-    font-size: 18px;
+    font-size: 12px;
     margin-top: 2px;
     margin-bottom: 5px;
+    margin-left: 15px;
     vertical-align: top;
-    text-align: center;
 }
 
 #outputdiv {
@@ -152,4 +159,16 @@ body {
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
+}
+
+table tr th {
+    font-size: 12px;
+    font-weight: normal;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+table tr td {
+    font-weight: bold;
+    font-size: 12px;
 }

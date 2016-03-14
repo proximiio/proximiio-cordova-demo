@@ -33,22 +33,73 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
+        <title>Proximi.io</title>
     </head>
     <body>
         <div class="header">
-            <h1>Proximiio</h1>
-            <h2>Navture Apps</h2>
+            <table>
+                <tr>
+                    <td style="width:50px;text-align: center; vertical-align: middle;">
+                        <img src="img/logo.png" style="width:30px;height:30px;"/>
+                    </td>
+                    <td style="text-align: center; vertical-align: middle;">
+                        <h1>Proximi.io Cordova</h1>
+                    </td>
+                    <td style="width:50px">
+                        &nbsp;
+                    </td>
+                </tr>
+            </table>
         </div>
         <div class="page">
-            <p class="keyp">Last Input Type:</p>
-            <p class="valuep" id="inputtype">None</p>
-            <p class="keyp">Last Input Object:</p>
-            <p class="valuep" id="inputobj">-</p>
-            <p class="keyp">Position from last update:</p>
-            <p class="valuep" id="position">0, 0</p>
-            <p class="keyp">Output:</p>
-            <p class="valuep" id="outputobj"></p>
+            <p class="keyp">Position</p>
+            <div class="valuep" id="position">
+                <table>
+                    <tr>
+                        <th>Latitude</th>
+                        <td id="position-latitude"></td>
+                    </tr>
+                    <tr>
+                        <th>Longitude</th>
+                        <td id="position-longitude"></td>
+                    </tr>
+                    <tr>
+                        <th>Accuracy</th>
+                        <td id="position-accuracy"></td>
+                    </tr>
+                </table>
+            </div>
+            <p class="keyp">Geofence</p>
+            <div class="valuep" id="geofence">
+                <table>
+                    <tr>
+                        <th>Event</th>
+                        <td id="geofence-event"></td>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <td id="geofence-name"></td>
+                    </tr>
+                    <tr>
+                        <th>Address</th>
+                        <td id="geofence-address"></td>
+                    </tr>
+                    <tr>
+                        <th>Latitude</th>
+                        <td id="geofence-latitude"></td>
+                    </tr>
+                    <tr>
+                        <th>Longitude</th>
+                        <td id="geofence-longitude"></td>
+                    </tr>
+                    <tr>
+                        <th>Radius</th>
+                        <td id="geofence-radius"></td>
+                    </tr>
+                </table>
+            </div>
+            <p class="keyp">Output</p>
+            <div class="valuep" id="output">waiting for output</div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>

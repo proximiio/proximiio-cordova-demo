@@ -16,6 +16,9 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+var PROXIMIIO_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImlzcyI6IjczNzQ4MzdjOTE3MzQzN2VjM2ZmYjRhZWMyNmUxOGI4IiwidHlwZSI6InVzZXIiLCJ1c2VyIjoiUHJveGltaWlvIERldnMiLCJ1c2VyX2lkIjoiMTU1YjEzNmMtNDM2OC00ODdiLTg0MzQtOGRlZGJhNzc1YzVmIiwidGVuYW50X2lkIjoiMmZkOTFmMzUtNTI0My00MjI2LWIxODItZTEzOGQzNDgyNWY1In0.xBV7cKJ82VnExTQMy9J2aOitS59TpbHZHXr-AhwhbLQ";
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -33,30 +36,31 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-      proximiio.setIDandAuthToken("YOUR_APP_ID", "YOUR_AUTH_TOKEN", null, null);
-      proximiio.setDebugOutput(true, null, null);
-      proximiio.setOutputTriggerCallback(function (output, input) {
-          // if(output.type != "XHTML")
-          //     return;
-          document.getElementById("inputtype").innerHTML = input.type;
-          document.getElementById("inputobj").innerHTML = JSON.stringify(input, null, 4);
-          document.getElementById("position").innerHTML = input.coordinates.lat+", "+input.coordinates.lon;
-          document.getElementById("outputobj").innerHTML = JSON.stringify(output, null, 4);
-      });
+        console.log('onDeviceReady');
+        proximiio.setToken(PROXIMIIO_TOKEN);
+        proximiio.setDebugOutput(true, null, null);
 
-      proximiio.setInputTriggerCallback(function(input, entered) {
-          if(entered == false)
-              return;
-          document.getElementById("inputtype").innerHTML = input.type;
-          document.getElementById("position").innerHTML = input.coordinates.lat+", "+input.coordinates.lon;
-          document.getElementById("inputobj").innerHTML = JSON.stringify(input, null, 4);
-      });
+        proximiio.setOutputTriggerCallback(function (output) {
+          document.getElementById("output").innerHTML = "<pre>" + JSON.stringify(output, null, 4) + "</pre>";
+        });
 
-      proximiio.setPositionChangeCallback(function(coords)
-      {
-          document.getElementById("position").innerHTML = coords.coordinates.lat+", "+coords.coordinates.lon;
-      });
+        proximiio.setInputTriggerCallback(function(enter, geofence) {
+            document.getElementById("geofence-event").innerHTML = enter ? "enter" : "exit";
+            document.getElementById("geofence-name").innerHTML = geofence.name;
+            document.getElementById("geofence-address").innerHTML = geofence.address;
+            document.getElementById("geofence-latitude").innerHTML = geofence.area.lat;
+            document.getElementById("geofence-longitude").innerHTML = geofence.area.lng;
+            document.getElementById("geofence-radius").innerHTML = geofence.radius;
+        });
+
+        proximiio.setPositionChangeCallback(function(coords) {
+          console.log('should update position div: ' + JSON.stringify(coords, null, 4));
+          document.getElementById("position-latitude").innerHTML = coords.coordinates.lat;
+          document.getElementById("position-longitude").innerHTML = coords.coordinates.lon;
+          document.getElementById("position-accuracy").innerHTML = coords.accuracy;
+        });
     },
+
     // Update DOM on a Received Event
     receivedEvent: function(id) {
       var parentElement = document.getElementById(id);

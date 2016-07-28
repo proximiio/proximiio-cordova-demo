@@ -12,5 +12,9 @@
   },
   "author": "",
   "license": "MIT",
-  "homepage": "https://github.com/proximiio/proximiio-cordova-demo#readme"
+  "homepage": "https://github.com/proximiio/proximiio-cordova-demo#readme",
+  "dependencies": {
+    "cordova": "^6.3.0",
+    "xcode": "^0.8.9"
+  }
 }

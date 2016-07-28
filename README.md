@@ -26,4 +26,10 @@ Edit www/js/index.js find line containing "PROXIMIIO_TOKEN" and replace your Aut
 ```
 
 ### Run 
-use "cordova run android --device" or "cordova run ios --device" to run the application on device.
+In some cases Cordova doesn't recognize the end device correctly and runs the application in simulator instead, 
+in that case use --device parameter to force installation on device.
+```
+  cordova run android --device
+  cordova run ios
+```
+

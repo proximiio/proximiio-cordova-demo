@@ -59,6 +59,7 @@ var app = {
 
     proximiio.setProximiioReadyCallback(function (visitorId) {
       document.getElementById('visitor').innerHTML = visitorId;
+      proximiio.requestPermissions();
     });
 
     proximiio.setBeaconFoundCallback(function (beacon) {

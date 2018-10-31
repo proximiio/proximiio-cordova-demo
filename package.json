@@ -15,6 +15,7 @@
   "homepage": "https://github.com/proximiio/proximiio-cordova-demo#readme",
   "dependencies": {
     "cordova": "^6.3.0",
-    "xcode": "^0.8.9"
+    "xcode": "^0.8.9",
+    "xml2js": "^0.4.19"
   }
 }
